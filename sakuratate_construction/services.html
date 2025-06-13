@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サービス紹介 - 株式会社櫻建</title>
+    <meta name="description" content="株式会社櫻建が提供する足場工事、仮囲工事、吊り足場工事、砂防堰堤工事などのサービス内容を紹介します。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 以下のインラインスタイルはページ固有のものです -->
+    <style>
+        .page-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            margin-top: var(--header-height);
+            text-align: center;
+        }
+        
+        .page-header__title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header__subtitle {
+            font-size: 1rem;
+        }
+        
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 15px 0;
+        }
+        
+        .breadcrumb ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb li {
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '›';
+            margin: 0 10px;
+            color: var(--gray);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        .service-section {
+            padding: 80px 0;
+        }
+        
+        .service-section:nth-child(even) {
+            background-color: var(--tertiary);
+        }
+        
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .service-text {
+            flex: 1 1 500px;
+        }
+        
+        .service-image {
+            flex: 1 1 400px;
+        }
+        
+        .service-image img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: auto;
+        }
+        
+        .service-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .service-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .service-desc {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .service-features {
+            margin-bottom: 30px;
+        }
+        
+        .service-features h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-features ul {
+            list-style: none;
+        }
+        
+        .service-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .service-features li:before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .reverse-layout .service-text {
+            order: 2;
+        }
+        
+        .reverse-layout .service-image {
+            order: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 50px 0;
+            }
+            
+            .page-header__title {
+                font-size: 2rem;
+            }
+            
+            .service-section {
+                padding: 50px 0;
+            }
+            
+            .service-title {
+                font-size: 1.8rem;
+            }
+            
+            .reverse-layout .service-text,
+            .reverse-layout .service-image,
+            .service-text,
+            .service-image {
+                order: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container header__inner">
+            <div class="header__logo">
+                <a href="index.html">
+                    <span class="logo-text">株式会社櫻建</span>
+                    <span class="logo-tagline">確実だから安心。足場のプロ集団</span>
+                </a>
+            </div>
+            
+            <div class="header__nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="company.html">会社情報</a></li>
+                    <li><a href="services.html">サービス</a></li>
+                    <li><a href="works.html">施工事例</a></li>
+                    <li><a href="contact.html" class="btn-contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <div class="header__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ページヘッダー -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">サービス紹介</h1>
+            <p class="page-header__subtitle">Our Services</p>
+        </div>
+    </div>
+    
+    <!-- パンくずリスト -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li>サービス紹介</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 足場工事 -->
+    <section id="ashiba" class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="service-title">足場工事</h2>
+                    <h3 class="service-subtitle">確かな技術と安全性で最適な足場を提供します</h3>
+                    
+                    <p class="service-desc">
+                        建築現場において欠かせない足場工事。当社では枠組足場、クサビ緊結式足場、そして次世代足場まで、あらゆる建築物に最適な足場を提供しています。安全性と作業効率を両立させた施工で、現場の安全を確保します。
+                    </p>
+                    
+                    <div class="service-features">
+                        <h4>当社の足場工事の特徴</h4>
+                        <ul>
+                            <li>次世代足場による作業効率と安全性の向上</li>
+                            <li>手すり先行工法を標準採用した転落防止対策</li>
+                            <li>熟練した職人による確実な組み立て</li>
+                            <li>定期的な点検による安全管理の徹底</li>
+                            <li>現場に応じた最適な足場プランの提案</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="works.html#ashiba" class="btn btn-primary">施工事例を見る</a>
+                </div>
+                
+                <div class="service-image">
+                    <img src="images/work_sample1.jpg" alt="足場工事の施工例">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 仮囲工事 -->
+    <section id="karrui" class="service-section">
+        <div class="container">
+            <div class="service-content reverse-layout">
+                <div class="service-text">
+                    <h2 class="service-title">仮囲工事</h2>
+                    <h3 class="service-subtitle">現場の安全と美観を両立した仮囲いを提供</h3>
+                    
+                    <p class="service-desc">
+                        建設現場の安全確保と周辺環境への配慮を目的とした仮囲工事。当社では現場の状況や周辺環境に合わせた最適な仮囲いを提案・施工します。安全性はもちろん、美観にも配慮した仮囲いで、建設現場のイメージアップにも貢献します。
+                    </p>
+                    
+                    <div class="service-features">
+                        <h4>当社の仮囲工事の特徴</h4>
+                        <ul>
+                            <li>現場環境に応じた素材・高さの最適化</li>
+                            <li>デザイン性に優れた仮囲いによる現場のイメージアップ</li>
+                            <li>強風対策や防音対策などの機能性</li>
+                            <li>迅速な施工による工期短縮</li>
+                            <li>定期的なメンテナンスによる安全確保</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="works.html#karrui" class="btn btn-primary">施工事例を見る</a>
+                </div>
+                
+                <div class="service-image">
+                    <img src="images/work_sample2.jpg" alt="仮囲工事の施工例">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 吊り足場工事 -->
+    <section id="tsuriashiba" class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="service-title">吊り足場工事</h2>
+                    <h3 class="service-subtitle">橋梁や高層建造物の安全な施工をサポート</h3>
+                    
+                    <p class="service-desc">
+                        橋梁工事や高層建造物の補修工事などで活躍する吊り足場。地上からの支持が困難な場所での作業を可能にするこの特殊足場は、高度な技術と経験が必要です。当社では豊富な実績と専門知識を活かし、安全かつ効率的な吊り足場を提供します。
+                    </p>
+                    
+                    <div class="service-features">
+                        <h4>当社の吊り足場工事の特徴</h4>
+                        <ul>
+                            <li>構造物の形状に合わせた最適設計</li>
+                            <li>二重三重の安全対策による墜落防止</li>
+                            <li>高所作業の専門知識を持った職人による施工</li>
+                            <li>風や振動への対策を考慮した堅固な足場</li>
+                            <li>最新の吊り足場工法の導入</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="works.html#tsuriashiba" class="btn btn-primary">施工事例を見る</a>
+                </div>
+                
+                <div class="service-image">
+                    <img src="images/work_sample1.jpg" alt="吊り足場工事の施工例">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 砂防堰堤工事 -->
+    <section id="sabou" class="service-section">
+        <div class="container">
+            <div class="service-content reverse-layout">
+                <div class="service-text">
+                    <h2 class="service-title">砂防堰堤工事</h2>
+                    <h3 class="service-subtitle">鋼製スリットの据付工事で災害に強い地域づくりに貢献</h3>
+                    
+                    <p class="service-desc">
+                        土砂災害から地域を守る砂防堰堤工事。当社では特に鋼製スリット据付工事において高い技術力を発揮しています。大型重機の操作技術と正確な据付技術を組み合わせ、堅固な砂防施設の構築に貢献しています。
+                    </p>
+                    
+                    <div class="service-features">
+                        <h4>当社の砂防堰堤工事の特徴</h4>
+                        <ul>
+                            <li>厳しい自然環境での確実な施工</li>
+                            <li>高精度な鋼製スリットの据付技術</li>
+                            <li>大型重機の熟練オペレーション</li>
+                            <li>安全を最優先した現場管理</li>
+                            <li>周辺環境に配慮した施工方法</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="works.html#sabou" class="btn btn-primary">施工事例を見る</a>
+                </div>
+                
+                <div class="service-image">
+                    <img src="images/work_sample2.jpg" alt="砂防堰堤工事の施工例">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- その他工事 -->
+    <section id="other" class="service-section">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="service-title">その他工事</h2>
+                    <h3 class="service-subtitle">支保工工事、法面足場工事、生コン打設工事など</h3>
+                    
+                    <p class="service-desc">
+                        当社では主要サービスの他にも、支保工工事、法面足場工事、生コン打設工事など、建設現場で必要とされるさまざまな工事に対応しています。多様な工事に対応できる技術力と経験を活かし、お客様のニーズに合わせたサービスを提供します。
+                    </p>
+                    
+                    <div class="service-features">
+                        <h4>対応可能な工事</h4>
+                        <ul>
+                            <li>支保工工事：トンネルや橋梁などの大型構造物の施工をサポート</li>
+                            <li>法面足場工事：斜面での安全な作業環境を構築</li>
+                            <li>生コン打設工事：高品質な打設で建造物の強度を確保</li>
+                            <li>その他各種建設関連工事</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn-primary">お問い合わせをする</a>
+                </div>
+                
+                <div class="service-image">
+                    <img src="images/work_sample1.jpg" alt="その他工事の施工例">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせバナー -->
+    <section class="contact-banner">
+        <div class="container">
+            <div class="contact-banner__content">
+                <h2 class="contact-banner__title">お気軽にお問い合わせください</h2>
+                <p class="contact-banner__text">足場工事に関するご相談・お見積りは無料です</p>
+                <div class="contact-banner__buttons">
+                    <a href="contact.html" class="btn btn-secondary">お問い合わせをする</a>
+                    <a href="tel:0963485501" class="btn btn-secondary">お電話でのお問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <div class="footer__logo">
+                        <span class="logo-text">株式会社櫻建</span>
+                        <span class="logo-tagline">確実だから安心。足場のプロ集団</span>
+                    </div>
+                    <address class="footer__address">
+                        〒861-1112<br>
+                        熊本県合志市野々島5178-1<br>
+                        TEL: 096-348-5501<br>
+                        FAX: 096-348-5502<br>
+                        営業時間: 9:00-17:00(土・日・祝日除く)
+                    </address>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__nav">
+                        <h3 class="footer__heading">サイトマップ</h3>
+                        <ul>
+                            <li><a href="index.html">ホーム</a></li>
+                            <li><a href="company.html">会社情報</a></li>
+                            <li><a href="services.html">サービス</a></li>
+                            <li><a href="works.html">施工事例</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__service">
+                        <h3 class="footer__heading">サービス</h3>
+                        <ul>
+                            <li><a href="services.html#ashiba">足場工事</a></li>
+                            <li><a href="services.html#karrui">仮囲工事</a></li>
+                            <li><a href="services.html#tsuriashiba">吊り足場工事</a></li>
+                            <li><a href="services.html#sabou">砂防堰堤工事</a></li>
+                            <li><a href="services.html#other">その他工事</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__copy">
+                &copy; 2024 株式会社櫻建 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ロゴ生成</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .company-name {
+            font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: #FF6B98;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-family: "Hiragino Sans", "Meiryo", sans-serif;
+            font-size: 18px;
+            color: #333;
+        }
+        canvas {
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div class="company-name">株式会社 櫻建</div>
+        <div class="tagline">確実だから安心。足場のプロ集団</div>
+        <canvas id="logoCanvas" width="300" height="200"></canvas>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('logoCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // 背景をクリア
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 桜の花びらを描く関数
+            function drawPetal(x, y, size, angle, color) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle);
+                
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(size/2, size/2, size, -size/4, 0, -size);
+                ctx.bezierCurveTo(-size, -size/4, -size/2, size/2, 0, 0);
+                
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.restore();
+            }
+            
+            // 桜のロゴを描く
+            function drawSakuraLogo() {
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const petalSize = 30;
+                const petalCount = 5;
+                
+                // 花びらを描く
+                for(let i = 0; i < petalCount; i++) {
+                    const angle = (i * 2 * Math.PI) / petalCount;
+                    const color = '#FF6B98';
+                    drawPetal(centerX, centerY, petalSize, angle, color);
+                }
+                
+                // 中心の円を描く
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, petalSize/4, 0, 2 * Math.PI);
+                ctx.fillStyle = '#FFDE99';
+                ctx.fill();
+            }
+            
+            drawSakuraLogo();
+            
+            // 画像としてダウンロード
+            const dataUrl = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'sakura_logo.png';
+            link.href = dataUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>

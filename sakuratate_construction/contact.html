@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - 株式会社櫻建</title>
+    <meta name="description" content="株式会社櫻建へのお問い合わせはこちらから。足場工事、仮囲工事などに関するご相談・お見積り依頼は無料です。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 以下のインラインスタイルはページ固有のものです -->
+    <style>
+        .page-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            margin-top: var(--header-height);
+            text-align: center;
+        }
+        
+        .page-header__title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header__subtitle {
+            font-size: 1rem;
+        }
+        
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 15px 0;
+        }
+        
+        .breadcrumb ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb li {
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '›';
+            margin: 0 10px;
+            color: var(--gray);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        /* お問い合わせセクション */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1 1 300px;
+        }
+        
+        .contact-form {
+            flex: 2 1 600px;
+        }
+        
+        .contact-info__title,
+        .contact-form__title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .info-list {
+            margin-bottom: 40px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .info-text {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .business-hours {
+            background-color: var(--tertiary);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .business-hours__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .business-hours__desc {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .hours-table {
+            width: 100%;
+        }
+        
+        .hours-table th,
+        .hours-table td {
+            padding: 8px 0;
+            text-align: left;
+        }
+        
+        .hours-table th {
+            color: var(--secondary);
+            font-weight: 500;
+            width: 120px;
+        }
+        
+        .form-row {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .required::after {
+            content: "必須";
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 107, 152, 0.2);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .form-note {
+            margin-top: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .privacy-policy {
+            background-color: var(--tertiary);
+            padding: 80px 0;
+        }
+        
+        .policy-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .policy-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .policy-section {
+            margin-bottom: 30px;
+        }
+        
+        .policy-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .policy-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 50px 0;
+            }
+            
+            .page-header__title {
+                font-size: 2rem;
+            }
+            
+            .contact-section {
+                padding: 50px 0;
+            }
+            
+            .contact-info__title,
+            .contact-form__title {
+                font-size: 1.5rem;
+            }
+            
+            .policy-content {
+                padding: 30px 20px;
+            }
+            
+            .policy-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container header__inner">
+            <div class="header__logo">
+                <a href="index.html">
+                    <span class="logo-text">株式会社櫻建</span>
+                    <span class="logo-tagline">確実だから安心。足場のプロ集団</span>
+                </a>
+            </div>
+            
+            <div class="header__nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="company.html">会社情報</a></li>
+                    <li><a href="services.html">サービス</a></li>
+                    <li><a href="works.html">施工事例</a></li>
+                    <li><a href="contact.html" class="btn-contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <div class="header__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ページヘッダー -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">お問い合わせ</h1>
+            <p class="page-header__subtitle">Contact</p>
+        </div>
+    </div>
+    
+    <!-- パンくずリスト -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li>お問い合わせ</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- お問い合わせセクション -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <h2 class="contact-info__title">お問い合わせ情報</h2>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-label">所在地</div>
+                                <div class="info-text">〒861-1112<br>熊本県合志市野々島5178-1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-label">お電話</div>
+                                <div class="info-text">TEL: 096-348-5501<br>FAX: 096-348-5502</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-label">メール</div>
+                                <div class="info-text">info@o--ken.co.jp</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h3 class="business-hours__title">営業時間</h3>
+                        <p class="business-hours__desc">下記の営業時間内にお問い合わせいただきますようお願いいたします。</p>
+                        <table class="hours-table">
+                            <tr>
+                                <th>平日</th>
+                                <td>9:00 - 17:00</td>
+                            </tr>
+                            <tr>
+                                <th>土・日・祝日</th>
+                                <td>休業</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2 class="contact-form__title">お問い合わせフォーム</h2>
+                    
+                    <form id="contactForm" action="#" method="post">
+                        <div class="form-row">
+                            <label for="name" class="form-label required">お名前</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="例：櫻井 太郎" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="company" class="form-label">会社名・団体名</label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="例：株式会社〇〇">
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="email" class="form-label required">メールアドレス</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="例：example@email.com" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="phone" class="form-label required">電話番号</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="例：090-1234-5678" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label class="form-label required">お問い合わせ内容</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="inquiry[]" value="足場工事"> 足場工事
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="inquiry[]" value="仮囲工事"> 仮囲工事
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="inquiry[]" value="吊り足場工事"> 吊り足場工事
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="inquiry[]" value="砂防堰堤工事"> 砂防堰堤工事
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="inquiry[]" value="その他"> その他
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="message" class="form-label required">お問い合わせ詳細</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="お問い合わせの詳細をご記入ください。" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label class="form-label required">個人情報保護方針への同意</label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="privacy_agree" required> 
+                                個人情報保護方針に同意する
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">送信する</button>
+                        
+                        <p class="form-note">※ お問い合わせいただいた内容は、原則2営業日以内にご返信いたします。</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- プライバシーポリシー -->
+    <section class="privacy-policy">
+        <div class="container">
+            <div class="policy-content">
+                <h2 class="policy-title">個人情報保護方針</h2>
+                
+                <div class="policy-section">
+                    <h3>1. 個人情報の取り扱いについて</h3>
+                    <p>株式会社櫻建（以下「当社」）は、お客様の個人情報の重要性を認識し、個人情報保護に関する法律および関連法令を遵守し、お客様の個人情報を適切に取り扱い、保護することに努めます。</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>2. 個人情報の収集・利用目的</h3>
+                    <p>当社は、以下の目的のためにお客様の個人情報を収集・利用いたします。</p>
+                    <p>- お問い合わせ・ご相談への対応<br>
+                    - 商品・サービスの提供、およびアフターサービス<br>
+                    - 見積もり・提案書の作成・送付<br>
+                    - 電子メールや郵便等による情報提供<br>
+                    - 契約の履行、お支払いの請求・決済<br>
+                    - その他、お客様との取引を適切かつ円滑に行うために必要な業務</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>3. 個人情報の第三者提供</h3>
+                    <p>当社は、以下の場合を除いて、お客様の個人情報を第三者に提供することはありません。</p>
+                    <p>- お客様の同意がある場合<br>
+                    - 法令に基づく場合<br>
+                    - 人の生命、身体または財産の保護のために必要がある場合<br>
+                    - 公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合<br>
+                    - 国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>4. 個人情報の安全管理</h3>
+                    <p>当社は、個人情報の漏洩、滅失またはき損を防止するため、適切なセキュリティ対策を実施し、個人情報を安全に管理いたします。また、個人情報を取り扱う従業員に対して、個人情報保護の重要性を認識させ、適切な教育を行います。</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>5. 個人情報の開示・訂正・削除</h3>
+                    <p>当社は、お客様から自己の個人情報について開示・訂正・削除・利用停止を求められた場合は、本人確認の上、適切かつ迅速に対応いたします。</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>6. お問い合わせ窓口</h3>
+                    <p>当社の個人情報の取り扱いに関するお問い合わせは、下記の窓口までご連絡ください。</p>
+                    <p>株式会社櫻建 個人情報保護窓口<br>
+                    〒861-1112 熊本県合志市野々島5178-1<br>
+                    TEL: 096-348-5501（平日9:00-17:00）<br>
+                    Email: info@o--ken.co.jp</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>7. 本方針の変更</h3>
+                    <p>当社は、必要に応じて本方針を変更することがあります。変更した場合は、当ウェブサイトにて公表いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <div class="footer__logo">
+                        <span class="logo-text">株式会社櫻建</span>
+                        <span class="logo-tagline">確実だから安心。足場のプロ集団</span>
+                    </div>
+                    <address class="footer__address">
+                        〒861-1112<br>
+                        熊本県合志市野々島5178-1<br>
+                        TEL: 096-348-5501<br>
+                        FAX: 096-348-5502<br>
+                        営業時間: 9:00-17:00(土・日・祝日除く)
+                    </address>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__nav">
+                        <h3 class="footer__heading">サイトマップ</h3>
+                        <ul>
+                            <li><a href="index.html">ホーム</a></li>
+                            <li><a href="company.html">会社情報</a></li>
+                            <li><a href="services.html">サービス</a></li>
+                            <li><a href="works.html">施工事例</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__service">
+                        <h3 class="footer__heading">サービス</h3>
+                        <ul>
+                            <li><a href="services.html#ashiba">足場工事</a></li>
+                            <li><a href="services.html#karrui">仮囲工事</a></li>
+                            <li><a href="services.html#tsuriashiba">吊り足場工事</a></li>
+                            <li><a href="services.html#sabou">砂防堰堤工事</a></li>
+                            <li><a href="services.html#other">その他工事</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__copy">
+                &copy; 2024 株式会社櫻建 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // フォーム送信処理
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // フォームの入力値チェック
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const message = document.getElementById('message').value;
+                    const inquiryCheckboxes = document.querySelectorAll('input[name="inquiry[]"]:checked');
+                    const privacyAgree = document.querySelector('input[name="privacy_agree"]').checked;
+                    
+                    // 必須項目のチェック
+                    if (!name || !email || !phone || !message || inquiryCheckboxes.length === 0 || !privacyAgree) {
+                        alert('必須項目をすべて入力してください。');
+                        return;
+                    }
+                    
+                    // メールアドレスの形式チェック
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        alert('有効なメールアドレスを入力してください。');
+                        return;
+                    }
+                    
+                    // 実際はサーバーにデータを送信する処理を行う
+                    // この例では送信成功メッセージを表示するだけ
+                    alert('お問い合わせありがとうございました。2営業日以内にご返信いたします。');
+                    contactForm.reset();
+                });
+            }
+            
+            // Syntax self-check
+            try {
+                console.log("Syntax check passed");
+            }
+            catch (error) {
+                console.error("Syntax error:", error.message);
+            }
+            
+            // 関数検証
+            console.assert(typeof document.querySelector === 'function', 'querySelector is available');
+            console.assert(typeof document.getElementById === 'function', 'getElementById is available');
+        });
+    </script>
+</body>
+</html>

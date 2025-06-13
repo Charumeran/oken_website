@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社情報・代表挨拶 - 株式会社櫻建</title>
+    <meta name="description" content="株式会社櫻建の会社情報と代表挨拶ページです。熊本県を中心に安全で確実な足場工事を提供します。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 以下のインラインスタイルはページ固有のものです -->
+    <style>
+        .page-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            margin-top: var(--header-height);
+            text-align: center;
+        }
+        
+        .page-header__title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header__subtitle {
+            font-size: 1rem;
+        }
+        
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 15px 0;
+        }
+        
+        .breadcrumb ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb li {
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '›';
+            margin: 0 10px;
+            color: var(--gray);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        .company-info {
+            padding: 80px 0;
+        }
+        
+        .company-info__content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .company-info__text {
+            flex: 1 1 500px;
+        }
+        
+        .company-info__image {
+            flex: 1 1 400px;
+        }
+        
+        .company-info__image img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .company-info__title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .company-info__desc {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .message {
+            padding: 80px 0;
+            background-color: var(--tertiary);
+        }
+        
+        .message__content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .message__image {
+            flex: 1 1 400px;
+            order: 1;
+        }
+        
+        .message__text {
+            flex: 1 1 500px;
+            order: 2;
+        }
+        
+        .message__image img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message__title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .message__desc {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .message__name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: right;
+        }
+        
+        .message__position {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        
+        .table-info {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .table-info th,
+        .table-info td {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .table-info th {
+            width: 30%;
+            text-align: left;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        /* 沿革用のスタイル追加 */
+        .history {
+            padding: 80px 0;
+            background-color: var(--tertiary);
+        }
+        
+        .history__title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--primary);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-text {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .message__image {
+                order: 2;
+            }
+            
+            .message__text {
+                order: 1;
+            }
+            
+            .page-header {
+                padding: 50px 0;
+            }
+            
+            .page-header__title {
+                font-size: 2rem;
+            }
+            
+            .company-info,
+            .message,
+            .history {
+                padding: 50px 0;
+            }
+            
+            .company-info__title,
+            .message__title,
+            .history__title {
+                font-size: 1.8rem;
+            }
+            
+            .table-info th {
+                width: 35%;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container header__inner">
+            <div class="header__logo">
+                <a href="index.html">
+                    <span class="logo-text">株式会社櫻建</span>
+                    <span class="logo-tagline">確実だから安心。足場のプロ集団</span>
+                </a>
+            </div>
+            
+            <div class="header__nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="company.html">会社情報</a></li>
+                    <li><a href="services.html">サービス</a></li>
+                    <li><a href="works.html">施工事例</a></li>
+                    <li><a href="contact.html" class="btn-contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <div class="header__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ページヘッダー -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">会社情報</h1>
+            <p class="page-header__subtitle">Company Information</p>
+        </div>
+    </div>
+    
+    <!-- パンくずリスト -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li>会社情報</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 会社情報セクション -->
+    <section class="company-info">
+        <div class="container">
+            <div class="company-info__content">
+                <div class="company-info__text">
+                    <h2 class="company-info__title">安全と信頼を第一に考える<br>足場のプロフェッショナル</h2>
+                    <p class="company-info__desc">
+                        株式会社櫻建は熊本県合志市を拠点に、安全で信頼性の高い足場工事を提供する会社です。仮囲工事、足場工事、吊り足場工事、砂防堰堤工事など幅広いサービスを展開し、お客様のニーズに応える高品質な施工を心がけています。
+                    </p>
+                    <p class="company-info__desc">
+                        私たちは「確実だから安心。足場のプロ集団」というキャッチフレーズのもと、高度な技術力と豊富な経験を活かし、地域の建設産業に貢献してまいります。
+                    </p>
+                    
+                    <table class="table-info">
+                        <tr>
+                            <th>会社名</th>
+                            <td>株式会社櫻建</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>熊本県合志市野々島5178-1</td>
+                        </tr>
+                        <tr>
+                            <th>連絡先</th>
+                            <td>TEL: 096-348-5501<br>FAX: 096-348-5502</td>
+                        </tr>
+                        <tr>
+                            <th>営業時間</th>
+                            <td>9:00-17:00(土・日・祝日除く)</td>
+                        </tr>
+                        <tr>
+                            <th>事業内容</th>
+                            <td>
+                                仮囲工事<br>
+                                足場工事（枠組・クサビ緊結式・次世代足場）<br>
+                                吊り足場工事<br>
+                                砂防堰堤工事（鋼製スリット据付工事）<br>
+                                支保工工事<br>
+                                法面足場工事<br>
+                                生コン打設工事 ほか
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>代表者</th>
+                            <td>丸山 猛</td>
+                        </tr>
+                        <tr>
+                            <th>設立</th>
+                            <td>平成25年6月6日</td>
+                        </tr>
+                        <tr>
+                            <th>資本金</th>
+                            <td>500万円</td>
+                        </tr>
+                        <tr>
+                            <th>許可番号</th>
+                            <td>熊本県知事許可第17494号</td>
+                        </tr>
+                        <tr>
+                            <th>取引銀行</th>
+                            <td>肥後銀行・熊本銀行</td>
+                        </tr>
+                        <tr>
+                            <th>関連会社</th>
+                            <td>株式会社桃建 〒861-1103 熊本県合志市野々島5083-1</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="company-info__image">
+                    <img src="images/company_building.jpg" alt="株式会社櫻建の社屋">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 沿革セクション -->
+    <section class="history">
+        <div class="container">
+            <h2 class="history__title">沿革</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2013年6月6日</h3>
+                        <p class="timeline-text">株式会社櫻建 設立</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2013年7月31日</h3>
+                        <p class="timeline-text">許可取得</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2013年12月1日</h3>
+                        <p class="timeline-text">竹迫機材センター開設</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2014年5月1日</h3>
+                        <p class="timeline-text">弁天機材センター開設</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2014年10月10日</h3>
+                        <p class="timeline-text">合志市野々島に本社移転</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 代表挨拶セクション -->
+    <section class="message">
+        <div class="container">
+            <div class="message__content">
+                <div class="message__image">
+                    <img src="images/president.jpg" alt="代表取締役 丸山猛">
+                </div>
+                
+                <div class="message__text">
+                    <h2 class="message__title">「初心生涯」</h2>
+                    <p class="message__desc">
+                        初めて、作業服に袖を通した日。初めて、安全帯を付けた日。<br>
+                        初めて、現場作業した日。初めて、担当現場をもった日。<br>
+                        初めて、車両を購入した日。初めて、仕事を受注した日。
+                    </p>
+                    <p class="message__desc">
+                        一生涯、最初の気持ちでいることを忘れない。
+                    </p>
+                    <p class="message__desc">
+                        技術力の向上だけでなく、身だしなみ、資材の整理整頓、柔軟な現場対応に気を配り、
+                        お客様への感謝の気持ちを忘れずこれからも、ひとりでも多くのお客様に
+                        「櫻建にお願いしてよかった」と言っていただけるよう、
+                        社員一同真摯に向き合ってまいりますので引き続きご支援賜ります様よろしくお願い申し上げます。
+                    </p>
+                    <p class="message__position">代表取締役</p>
+                    <p class="message__name">丸山 猛</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- お問い合わせバナー -->
+    <section class="contact-banner">
+        <div class="container">
+            <div class="contact-banner__content">
+                <h2 class="contact-banner__title">安全で確実な足場工事のことなら<br>株式会社櫻建にお任せください</h2>
+                <p class="contact-banner__text">お見積り・ご相談は無料です。お気軽にお問い合わせください。</p>
+                <div class="contact-banner__buttons">
+                    <a href="tel:0963485501" class="btn btn-secondary"><i class="fas fa-phone"></i> 096-348-5501</a>
+                    <a href="contact.html" class="btn btn-secondary"><i class="fas fa-envelope"></i> お問い合わせフォーム</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <div class="footer__logo">
+                        <span class="logo-text">株式会社櫻建</span>
+                        <span class="logo-tagline">確実だから安心。足場のプロ集団</span>
+                    </div>
+                    <div class="footer__address">
+                        〒861-1103<br>
+                        熊本県合志市野々島5178-1<br>
+                        TEL: 096-348-5501<br>
+                        FAX: 096-348-5502<br>
+                        営業時間: 9:00-17:00(土・日・祝日除く)
+                    </div>
+                </div>
+                
+                <div class="footer__links">
+                    <h3 class="footer__heading">リンク</h3>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="company.html">会社情報</a></li>
+                        <li><a href="services.html">サービス</a></li>
+                        <li><a href="works.html">施工事例</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__service">
+                    <h3 class="footer__heading">サービス</h3>
+                    <ul>
+                        <li><a href="services.html#scaffold">足場工事</a></li>
+                        <li><a href="services.html#temporary-enclosure">仮囲工事</a></li>
+                        <li><a href="services.html#sabo-dam">砂防堰堤工事</a></li>
+                        <li><a href="services.html#other">その他工事</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h3 class="footer__heading">お問い合わせ</h3>
+                    <p>お見積り・ご相談は無料です。<br>お気軽にお問い合わせください。</p>
+                    <div class="footer__buttons">
+                        <a href="tel:0963485501" class="btn btn-outline"><i class="fas fa-phone"></i> 096-348-5501</a>
+                        <a href="contact.html" class="btn btn-outline"><i class="fas fa-envelope"></i> お問い合わせフォーム</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="copyright">© 2023 株式会社櫻建 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
