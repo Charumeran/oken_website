@@ -567,55 +567,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // フォーム送信処理
-            const contactForm = document.getElementById('contactForm');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // フォームの入力値チェック
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
-                    const message = document.getElementById('message').value;
-                    const inquiryCheckboxes = document.querySelectorAll('input[name="inquiry[]"]:checked');
-                    const privacyAgree = document.querySelector('input[name="privacy_agree"]').checked;
-                    
-                    // 必須項目のチェック
-                    if (!name || !email || !phone || !message || inquiryCheckboxes.length === 0 || !privacyAgree) {
-                        alert('必須項目をすべて入力してください。');
-                        return;
-                    }
-                    
-                    // メールアドレスの形式チェック
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(email)) {
-                        alert('有効なメールアドレスを入力してください。');
-                        return;
-                    }
-                    
-                    // 実際はサーバーにデータを送信する処理を行う
-                    // この例では送信成功メッセージを表示するだけ
-                    alert('お問い合わせありがとうございました。2営業日以内にご返信いたします。');
-                    contactForm.reset();
-                });
-            }
-            
-            // Syntax self-check
-            try {
-                console.log("Syntax check passed");
-            }
-            catch (error) {
-                console.error("Syntax error:", error.message);
-            }
-            
-            // 関数検証
-            console.assert(typeof document.querySelector === 'function', 'querySelector is available');
-            console.assert(typeof document.getElementById === 'function', 'getElementById is available');
-        });
-    </script>
+    <script src="js/form.js"></script>
 </body>
 </html>

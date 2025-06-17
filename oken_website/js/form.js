@@ -107,8 +107,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const isValid = validateForm();
       
       if (isValid) {
-        // 実際のサーバーへの送信処理はここで行う
-        // この例ではシミュレーションのみ
+        // フォームデータを収集
+        const formData = new FormData(contactForm);
+        const data = {
+          name: formData.get('name'),
+          company: formData.get('company') || '',
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          inquiry: Array.from(formData.getAll('inquiry[]')),
+          message: formData.get('message'),
+          privacy_agree: formData.get('privacy_agree') ? 'true' : 'false'
+        };
         
         // 送信ボタンを非活性化し、テキストを変更
         const submitButton = contactForm.querySelector('.submit-btn');
@@ -117,20 +126,43 @@ document.addEventListener('DOMContentLoaded', function() {
           submitButton.textContent = '送信中...';
         }
         
-        // 実際のAPI呼び出しまたはフォーム送信の代わりにタイマーでシミュレート
-        setTimeout(() => {
-          // 成功メッセージ表示
-          alert('お問い合わせありがとうございました。2営業日以内にご返信いたします。');
-          
-          // フォームをリセット
-          contactForm.reset();
-          
+        // APIエンドポイントURL（開発環境と本番環境で切り替え）
+        const apiUrl = window.location.hostname === 'localhost' 
+          ? 'http://localhost:3000/api/contact'
+          : '/api/contact';
+        
+        // サーバーへ送信
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            // 成功メッセージ表示
+            alert(result.message || 'お問い合わせありがとうございました。2営業日以内にご返信いたします。');
+            
+            // フォームをリセット
+            contactForm.reset();
+          } else {
+            // エラーメッセージ表示
+            alert(result.message || 'エラーが発生しました。お手数ですが、もう一度お試しください。');
+          }
+        })
+        .catch(error => {
+          console.error('送信エラー:', error);
+          alert('通信エラーが発生しました。お手数ですが、お電話にてお問い合わせください。');
+        })
+        .finally(() => {
           // 送信ボタンを元に戻す
           if (submitButton) {
             submitButton.disabled = false;
             submitButton.textContent = '送信する';
           }
-        }, 1500);
+        });
       }
     });
     

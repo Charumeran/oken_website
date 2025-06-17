@@ -4,11 +4,32 @@ document.addEventListener('DOMContentLoaded', function() {
   // ハンバーガーメニューの制御
   const hamburger = document.querySelector('.header__hamburger');
   const nav = document.querySelector('.header__nav');
+  const body = document.body;
   
   if (hamburger) {
     hamburger.addEventListener('click', function() {
       this.classList.toggle('active');
       nav.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+    
+    // メニュー外クリックで閉じる
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !nav.contains(e.target) && nav.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+        body.classList.remove('menu-open');
+      }
+    });
+    
+    // リンククリックでメニューを閉じる
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+        body.classList.remove('menu-open');
+      });
     });
   }
   
@@ -17,17 +38,24 @@ document.addEventListener('DOMContentLoaded', function() {
   let lastScrollTop = 0;
   
   window.addEventListener('scroll', function() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
     
     if (scrollTop > 100) {
-      header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-      header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      header.classList.add('scrolled');
     } else {
-      header.style.backgroundColor = 'var(--white)';
-      header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      header.classList.remove('scrolled');
     }
     
-    lastScrollTop = scrollTop;
+    // スクロール方向によるヘッダーの表示/非表示(モバイル用)
+    if (window.innerWidth <= 768) {
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
 
   // アクティブなナビゲーションリンクのハイライト
