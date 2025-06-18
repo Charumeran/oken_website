@@ -1,5 +1,12 @@
 /* レスポンシブスタイル */
 
+/* タブレット用 (1024px以下) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
 /* タブレット用 (992px以下) */
 @media (max-width: 992px) {
   :root {
@@ -15,6 +22,19 @@
     background-color: var(--white);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
+    z-index: 999;
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
   
   .header__nav.active {
@@ -85,8 +105,14 @@
     --header-height: 70px;
   }
   
+  .container {
+    padding: 0 15px;
+  }
+  
   .hero {
     min-height: 500px;
+    background-size: cover;
+    background-position: center;
   }
   
   .hero__title {
@@ -97,10 +123,16 @@
     font-size: 1.1rem;
   }
   
+  .hero__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
   .hero__buttons .btn {
-    display: block;
     width: 80%;
-    margin: 10px auto;
+    max-width: 300px;
   }
   
   .section__title {
@@ -136,10 +168,28 @@
   .footer__service {
     margin-bottom: 30px;
   }
+  
+  /* カードレイアウトの調整 */
+  .service-card,
+  .work-card {
+    margin-bottom: 30px;
+  }
+  
+  .strength-item__number {
+    font-size: 3rem;
+  }
 }
 
 /* 小型スマホ用 (576px以下) */
 @media (max-width: 576px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* iOSサファリ対応 */
+  .hero {
+    min-height: -webkit-fill-available;
+  }
   .logo-text {
     font-size: 1.2rem;
   }
@@ -162,5 +212,24 @@
   
   .section__title {
     font-size: 1.8rem;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 25px;
+  }
+  
+  /* テキストの改行調整 */
+  .hero__title br,
+  .hero__subtitle br,
+  .contact-banner__text br {
+    display: none;
+  }
+  
+  /* カードのパディング調整 */
+  .service-card,
+  .work-card,
+  .strength-item {
+    padding: 20px;
   }
 }
