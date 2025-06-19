@@ -111,8 +111,10 @@
   
   .hero {
     min-height: 500px;
+    height: 70vh;
     background-size: cover;
     background-position: center;
+    background-attachment: scroll;
   }
   
   .hero__title {
@@ -189,6 +191,11 @@
   /* iOSサファリ対応 */
   .hero {
     min-height: -webkit-fill-available;
+    min-height: 450px;
+    height: 80vh;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
   }
   .logo-text {
     font-size: 1.2rem;
@@ -231,5 +238,23 @@
   .work-card,
   .strength-item {
     padding: 20px;
+  }
+}
+
+/* 極小デバイス用 (400px以下) */
+@media (max-width: 400px) {
+  .hero {
+    min-height: 400px;
+    height: 70vh;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  
+  .hero__title {
+    font-size: 1.5rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 0.9rem;
   }
 }
