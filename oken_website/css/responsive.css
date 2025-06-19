@@ -196,6 +196,9 @@
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
   .logo-text {
     font-size: 1.2rem;
@@ -248,6 +251,9 @@
     height: 70vh;
     background-size: cover;
     background-position: 50% 50%;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
   
   .hero__title {
